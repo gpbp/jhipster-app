@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "region",
+            "otherEntityName": "region",
+            "relationshipType": "many-to-one",
+            "otherEntityRelationshipName": "region",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "population",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "department_number",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20200310110631",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "department",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": true,
+    "pagination": "no"
+}

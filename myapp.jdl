@@ -1,0 +1,58 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName myapplication
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1583836285368
+    databaseType sql
+    devDatabaseType mysql
+    dtoSuffix DTO
+    embeddableLaunchScript false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation false
+    jhiPrefix jhi
+    jhipsterVersion "6.8.0"
+    jwtSecretKey "ZDMwOTg2YzhmYTlhYmI0M2MwZjBmNmE3MjM4NmM4MjVlNmVkYTBlNmJjNTk0NDZkODJmMTE2ZGU1ZmNkNjY0NTE3MDk0MTg3YTVmMmMwM2E4ZTViYmNkMDg0MzlhNjI4ZTRmNDM4M2IwMmMzMjJlMjZiMTdmYTE2MTA2ZTNmZjA="
+    languages [en, fr]
+    messageBroker false
+    nativeLanguage en
+    otherModules []
+    packageName com.mycompany.myapp
+    prodDatabaseType mysql
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType false
+    skipClient false
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    useSass true
+    websocket false
+  }
+
+  entities Department, Region
+}
+
+entity Department {
+  name String,
+  population Integer,
+  department_number String
+}
+entity Region {
+  name String,
+  prefecture String
+}
+relationship OneToMany {
+  Region{departments} to Department{region}
+}
+
+dto Department, Region with mapstruct
+service Department with serviceImpl
+filter Department
+readOnly Department, Region

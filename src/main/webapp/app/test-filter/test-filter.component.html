@@ -1,0 +1,53 @@
+<div>
+    <h1>Test Filter Form</h1>
+    <form (ngSubmit)="onSubmit()" #popuForm="ngForm">
+      <div>
+        <label for="population">Population.greaterThan</label>
+        <input type="text" id="population" [(ngModel)]="population" name="population" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="region">Search by region</label>
+        <input type="text" id="region" [(ngModel)]="region" name="region" #name="ngModel" required>
+      </div>
+
+      <button type="submit" class="btn btn-info">
+          <span>Submit</span>
+      </button>
+
+    </form>
+
+    <div class="table-responsive" *ngIf="departments?.length > 0">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr>
+            <th>Id
+            </th>
+            <th>Name
+            </th>
+            <th>population
+            </th>
+            <th>dept_number
+            </th>
+            <th>region
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dept of departments">
+            <th>{{dept.id}}
+            </th>
+            <th>{{dept.name}}
+            </th>
+            <th>{{dept.population}}
+            </th>
+            <th>{{dept.department_number}}
+            </th>
+            <th>{{dept.regionId}}
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+      
+</div>

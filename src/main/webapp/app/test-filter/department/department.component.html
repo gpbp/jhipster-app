@@ -1,0 +1,59 @@
+<div>
+    <h1>Test Filter Form</h1>
+    <form (ngSubmit)="onSubmit()" #popuForm="ngForm">
+      <div>
+        <label for="population">Population.greaterThan</label>
+        <input type="text" id="population" [(ngModel)]="population" name="population" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="region">Search by region</label>
+        <input type="text" id="region" [(ngModel)]="region" name="region" #name="ngModel" required>
+      </div>
+
+      <button type="submit" class="btn btn-info">
+          <span>Submit</span>
+      </button>
+
+    </form>
+    <button type="submit" class="btn btn-info" (click)="loadAll()">
+      <span>Reset</span>
+    </button>
+
+    <div class="table-responsive" *ngIf="departments?.length > 0">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadAll.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="population"><span>Population</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="departmentNumber"><span>Dept_number</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="regionName"><span>Region</span> <fa-icon icon="sort"></fa-icon></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dept of departments">
+            <th>{{dept.id}}
+            </th>
+            <th>{{dept.name}}
+            </th>
+            <th>{{dept.population}}
+            </th>
+            <th>{{dept.department_number}}
+            </th>
+            <th>{{dept.regionName}}
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="departments">
+      <div class="row justify-content-center">
+        <jhi-item-count [page]="page" [total]="totalDepartments" [itemsPerPage]="departmentsPerPage"></jhi-item-count>
+      </div>
+      <div class="row justify-content-center">
+          <ngb-pagination [collectionSize]="totalDepartments" [(page)]="page" [pageSize]="departmentsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="pageChange()"></ngb-pagination>
+      </div>
+    </div>
+      
+</div>

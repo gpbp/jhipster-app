@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "departments",
+            "otherEntityName": "department",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "region"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prefecture",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20200310105154",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "region",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
